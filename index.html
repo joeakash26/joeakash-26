@@ -1,100 +1,128 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joe Akash | My Blog</title>
+    <title>JOE AKASH A | Portfolio & Blog</title>
     <style>
-        :root {
-            --primary-color: #24292e;
-            --accent-color: #0366d6;
-            --bg-color: #f6f8fa;
-            --text-color: #333;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: #fafdff;
+            color: #333;
         }
-        header {
-            background-color: var(--primary-color);
+        nav {
+            background-color: #24292e;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .brand {
             color: white;
-            text-align: center;
-            padding: 2rem 1rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+        nav .menu a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
         }
-        header p {
-            margin: 0.5rem 0 0 0;
-            opacity: 0.8;
+        nav .menu a:hover, nav .menu a.active {
+            color: white;
+            font-weight: 500;
         }
         .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
         }
-        .blog-post {
-            background: white;
+        .page-content { display: none; }
+        .page-content.active { display: block; }
+        
+        h1 { font-size: 2.2rem; color: #24292e; margin-bottom: 1rem; }
+        h2 { font-size: 1.6rem; color: #0366d6; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        p { margin-bottom: 1.2rem; font-size: 1.1rem; color: #444; text-align: justify; }
+        ul { margin-left: 1.5rem; margin-bottom: 1.2rem; }
+        li { margin-bottom: 0.5rem; font-size: 1.05rem; }
+        a { color: #0366d6; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        
+        .welcome-box {
+            background: #f6f8fa;
+            border-left: 4px solid #0366d6;
             padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 2rem;
+        }
+        .post-card {
+            background: white;
             border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
-        .blog-post h2 {
-            margin-top: 0;
-        }
-        .blog-post h2 a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-        .blog-post h2 a:hover {
-            text-decoration: underline;
-        }
-        .meta {
-            font-size: 0.85rem;
+        .post-meta {
+            font-size: 0.9rem;
             color: #586069;
             margin-bottom: 1rem;
+        }
+        .post-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1.5rem auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
         footer {
             text-align: center;
             padding: 2rem;
-            color: #586069;
+            margin-top: 4rem;
+            color: #6a737d;
+            border-top: 1px solid #e1e4e8;
             font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Joe Akash Blog</h1>
-        <p>Welcome to my personal corner on the internet!</p>
-    </header>
+    <!-- Navigation Bar -->
+    <nav>
+        <a class="brand" onclick="showPage('home')">JOE AKASH A</a>
+        <div class="menu">
+            <a id="nav-home" class="active" onclick="showPage('home')">Home</a>
+            <a id="nav-about" onclick="showPage('about')">About</a>
+            <a id="nav-contact" onclick="showPage('contact')">Contact</a>
+        </div>
+    </nav>
 
+    <!-- Main Content Container -->
     <div class="container">
-        <!-- Post 1 -->
-        <article class="blog-post">
-            <h2><a href="#">My First Technical Journey</a></h2>
-            <div class="meta">Published on: September 21, 2026 | Author: Joe Akash</div>
-            <p>Welcome to my brand new blog setup using GitHub Pages. In this space, I will be sharing my learnings, technical setups, and localhost development experiments. Stay tuned for exciting updates!</p>
-        </article>
-
-        <!-- Post 2 -->
-        <article class="blog-post">
-            <h2><a href="#">Moving Away from Complex Generators</a></h2>
-            <div class="meta">Published on: September 20, 2026 | Author: Joe Akash</div>
-            <p>Static site generators are awesome, but sometimes a simple, clean, custom HTML structure gives you absolute control over how things load and display without any backend configurations.</p>
-        </article>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Joe Akash. Built cleanly with GitHub Pages.</p>
-    </footer>
-
-</body>
-</html>
+        
+        <!-- HOME PAGE (BLOGS LIST) -->
+        <main id="page-home" class="page-content active">
+            <h1>JOE AKASH A</h1>
+            <div class="welcome-box">
+                <p>I am Joe Akash A. I am studying in Azim Premji University, Bangalore. My major is B.Sc. Information Science. I like coding [1].</p>
+            </div>
+            
+            <h2>Recent Posts</h2>
+            
+            <!-- Blog Post 1 -->
+            <article class="post-card">
+                <h3>LJ_1-Group Presentation</h3>
+                <div class="post-meta">Published on: September 21, 2026</div>
+                
+                <h4>My Experience</h4>
+                <p>A few days ago, my friends Priyanshu, Pranav, Thesh Bharath, and I gave a presentation on "Computer Viruses and Cyber Security." For my part, I spoke about the Summary and Reflection at the end. I was a bit nervous before going to the stage, but I did my best. I explained the final points about how viruses steal data and how we can defend ourselves using tools like Snort and CrowdStrike [7].</p>
+                
+                <p>In my team reflection part, I told the audience about the "Zero Trust Policy" and shared the action plan. I told everyone to stop clicking suspicious links and gave them the 1930 cybercrime helpline number to stay safe. It felt really good when everyone clapped after I finished speaking. Our teamwork was super successful, and it is a very happy memory for me [7]!</p>
+                
+                <!-- Presentation Image Embedded Directly -->
