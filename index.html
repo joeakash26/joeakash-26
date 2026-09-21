@@ -3,126 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOE AKASH A | Portfolio & Blog</title>
+    <title>JOE AKASH A</title>
     <style>
+        /* Exact Jekyll Minima Layout Styling */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #fafdff;
-            color: #333;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #111;
+            background-color: #fdfdfd;
         }
-        nav {
-            background-color: #24292e;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .site-header {
+            border-top: 5px solid #424242;
+            border-bottom: 1px solid #e8e8e8;
+            min-height: 56px;
+            background-color: #fdfdfd;
         }
-        nav .brand {
-            color: white;
-            font-size: 1.3rem;
-            font-weight: bold;
+        .wrapper {
+            max-width: calc(800px - 60px);
+            margin-right: auto;
+            margin-left: auto;
+            padding-right: 30px;
+            padding-left: 30px;
+        }
+        @media screen and (max-width: 800px) {
+            .wrapper { max-width: calc(800px - 30px); padding-right: 15px; padding-left: 15px; }
+        }
+        .site-title {
+            font-size: 1.625rem;
+            font-weight: 300;
+            line-height: 54px;
+            letter-spacing: -1px;
+            color: #424242;
             text-decoration: none;
+            float: left;
             cursor: pointer;
         }
-        nav .menu a {
-            color: #aaa;
+        .site-nav {
+            float: right;
+            line-height: 54px;
+        }
+        .site-nav .page-link {
+            color: #111;
             text-decoration: none;
-            margin-left: 1.5rem;
+            margin-left: 20px;
+            cursor: pointer;
             font-size: 1rem;
-            cursor: pointer;
         }
-        nav .menu a:hover, nav .menu a.active {
-            color: white;
-            font-weight: 500;
-        }
-        .container {
-            max-width: 850px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
+        .site-nav .page-link:hover { text-decoration: underline; }
+        
+        .main-content { padding: 30px 0; min-height: calc(100vh - 190px); }
         .page-content { display: none; }
         .page-content.active { display: block; }
+
+        /* Typography Matching Your Screenshots */
+        h1.post-title { font-size: 2.25rem; font-weight: 400; letter-spacing: -1px; margin-bottom: 5px; color: #111; line-height: 1.2; }
+        .post-date-sub { font-size: 15px; color: #828282; margin-bottom: 30px; }
         
-        h1 { font-size: 2.2rem; color: #24292e; margin-bottom: 1rem; }
-        h2 { font-size: 1.6rem; color: #0366d6; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-        p { margin-bottom: 1.2rem; font-size: 1.1rem; color: #444; text-align: justify; }
-        ul { margin-left: 1.5rem; margin-bottom: 1.2rem; }
-        li { margin-bottom: 0.5rem; font-size: 1.05rem; }
-        a { color: #0366d6; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        h1 { font-size: 2.25rem; font-weight: 400; letter-spacing: -1px; margin-bottom: 30px; color: #111; }
+        h2 { font-size: 1.75rem; font-weight: 400; margin-top: 30px; margin-bottom: 15px; color: #111; line-height: 1.2; }
+        p { margin-bottom: 15px; color: #111; text-align: left; font-size: 16px; }
+        ul { margin-bottom: 15px; padding-left: 30px; }
+        li { margin-bottom: 5px; }
+        a { color: #2a7ae2; text-decoration: none; }
+        a:hover { text-decoration: underline; color: #111; }
         
-        .welcome-box {
-            background: #f6f8fa;
-            border-left: 4px solid #0366d6;
-            padding: 1.5rem;
-            border-radius: 0 6px 6px 0;
-            margin-bottom: 2rem;
-        }
-        .post-card {
-            background: white;
-            border: 1px solid #e1e4e8;
-            border-radius: 6px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-        .post-meta {
-            font-size: 0.9rem;
-            color: #586069;
-            margin-bottom: 1rem;
-        }
-        .post-img {
+        /* Main Page Feed */
+        .feed-title { font-size: 2.25rem; font-weight: 400; margin-bottom: 30px; }
+        .post-list { list-style: none; padding-left: 0; }
+        .post-list li { margin-bottom: 30px; }
+        .post-meta { font-size: 14px; color: #828282; display: block; margin-bottom: 5px; }
+        .post-link { font-size: 1.5rem; color: #2a7ae2; text-decoration: none; cursor: pointer; font-weight: 400; }
+        .post-link:hover { text-decoration: underline; }
+        
+        /* Image Control */
+        .post-image {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 1.5rem auto;
-            border-radius: 6px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            margin: 30px 0;
         }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            color: #6a737d;
-            border-top: 1px solid #e1e4e8;
-            font-size: 0.9rem;
-        }
+        
+        /* Footer Core */
+        .site-footer { border-top: 1px solid #e8e8e8; padding: 30px 0; font-size: 15px; color: #828282; margin-top: 50px; clear: both; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2a7ae2; cursor: pointer; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <a class="brand" onclick="showPage('home')">JOE AKASH A</a>
-        <div class="menu">
-            <a id="nav-home" class="active" onclick="showPage('home')">Home</a>
-            <a id="nav-about" onclick="showPage('about')">About</a>
-            <a id="nav-contact" onclick="showPage('contact')">Contact</a>
+    <!-- Top Navigation Bar -->
+    <header class="site-header">
+        <div class="wrapper">
+            <a class="site-title" onclick="showPage('home')">JOE AKASH A</a>
+            <nav class="site-nav">
+                <a class="page-link" onclick="showPage('about')">About</a>
+                <a class="page-link" onclick="showPage('contact')">contact</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Content Container -->
-    <div class="container">
+    <!-- Main Dynamic Core Framework -->
+    <div class="wrapper main-content">
         
-        <!-- HOME PAGE (BLOGS LIST) -->
-        <main id="page-home" class="page-content active">
-            <h1>JOE AKASH A</h1>
-            <div class="welcome-box">
-                <p>I am Joe Akash A. I am studying in Azim Premji University, Bangalore. My major is B.Sc. Information Science. I like coding [1].</p>
-            </div>
+        <!-- 1. FEED INDEX VIEW -->
+        <main id="view-home" class="page-content active">
+            <h1 class="feed-title">Posts</h1>
+            <ul class="post-list">
+                <li>
+                    <span class="post-meta">Sep 21, 2026</span>
+                    <a class="post-link" onclick="showPage('post-lj2')">Lj_2 Group project</a>
+                </li>
+                <li>
+                    <span class="post-meta">Sep 21, 2026</span>
+                    <a class="post-link" onclick="showPage('post-lj1')">LJ_1-Group Presentation</a>
+                </li>
+            </ul>
+        </main>
+
+        <!-- 2. ARTICLE COMPONENT VIEW: LJ_1-Group Presentation -->
+        <article id="view-post-lj1" class="page-content">
+            <span class="back-link" onclick="showPage('home')">&larr; Back to Posts</span>
+            <h1 class="post-title">LJ_1-Group Presentation</h1>
+            <div class="post-date-sub">Sep 21, 2026</div>
             
-            <h2>Recent Posts</h2>
+            <h2>My Experience</h2>
+            <p>A few days ago, my friends Priyanshu, Pranav, Thesh Bharath, and I gave a presentation on "Computer Viruses and Cyber Security." For my part, I spoke about the Summary and Reflection at the end. I was a bit nervous before going to the stage, but I did my best. I explained the final points about how viruses steal data and how we can defend ourselves using tools like Snort and CrowdStrike.</p>
+            <p>In my team reflection part, I told the audience about the "Zero Trust Policy" and shared the action plan. I told everyone to stop clicking suspicious links and gave them the 1930 cybercrime helpline number to stay safe. It felt really good when everyone clapped after I finished speaking. Our teamwork was super successful, and it is a very happy memory for me!</p>
             
-            <!-- Blog Post 1 -->
-            <article class="post-card">
-                <h3>LJ_1-Group Presentation</h3>
-                <div class="post-meta">Published on: September 21, 2026</div>
-                
-                <h4>My Experience</h4>
-                <p>A few days ago, my friends Priyanshu, Pranav, Thesh Bharath, and I gave a presentation on "Computer Viruses and Cyber Security." For my part, I spoke about the Summary and Reflection at the end. I was a bit nervous before going to the stage, but I did my best. I explained the final points about how viruses steal data and how we can defend ourselves using tools like Snort and CrowdStrike [7].</p>
-                
-                <p>In my team reflection part, I told the audience about the "Zero Trust Policy" and shared the action plan. I told everyone to stop clicking suspicious links and gave them the 1930 cybercrime helpline number to stay safe. It felt really good when everyone clapped after I finished speaking. Our teamwork was super successful, and it is a very happy memory for me [7]!</p>
-                
-                <!-- Presentation Image Embedded Directly -->
+            <img src="assets/images/first-slide.png" alt="Group Presentation First Page" class="post-image">
+        </article>
+
+        <!-- 3. ARTICLE COMPONENT VIEW: Lj_2 Group project -->
+        <article id="view-post-lj2" class="page-content">
+            <span class="back-link" onclick="showPage('home')">&larr; Back to Posts</span>
+            <h1 class="post-title">Lj_2 Group project</h1>
+            <div class="post-date-sub">Sep 21, 2026</div>
+            <p>This post is currently empty. You can add your project experience or content inside this section anytime!</p>
+        </article>
+
+        <!-- 4. STATIC PAGE COMPONENT: ABOUT -->
+        <section id="view-about" class="page-content">
+            <h1>About</h1>
+            <h2>About Me</h2>
+            <ul>
+                <li><strong>Name:</strong> Joe Akash A</li>
+                <li><strong>Interests:</strong> Tech, Cybersecurity and Ethical Hacking</li>
+                <li><strong>Current Status:</strong> Learning something new every day</li>
+            </ul>
+        </section>
+
+        <!-- 5. STATIC PAGE COMPONENT: CONTACT -->
+        <section id="view-contact" class="page-content">
+            <h1>contact</h1>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:joe.akash26_ug@apu.edu.in">joe.akash26_ug@apu.edu.in</a></li>
+                <li><strong>Github:</strong> <a href="https://github.com" target="_blank">JOEAKASH24</a></li>
+            </ul>
+        </section>
+
+    </div>
+
+    <!-- Permanent Bottom Layout Frame -->
+    <footer class="site-footer">
+        <div class="wrapper">
+            <span>&copy; 2026 JOE AKASH A - All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    <!-- Routing Core Action Script -->
+    <script>
+        function showPage(viewId) {
+            document.querySelectorAll('.page-content').forEach(view => {
+                view.classList.remove('active');
+            });
+            document.getElementById('view-' + viewId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+    </script>
+
+</body>
+</html>
